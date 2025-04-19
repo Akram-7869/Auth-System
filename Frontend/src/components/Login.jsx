@@ -39,7 +39,8 @@ const Login = () => {
     dispatch(setLoading(true));
     
     try {
-      const response = await fetch('http://localhost:3000/api/auth/login', {
+      const URL = import.meta.env.VITE_BACKEND_URL;
+      const response = await fetch(`${URL}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

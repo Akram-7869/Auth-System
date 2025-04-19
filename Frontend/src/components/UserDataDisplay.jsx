@@ -23,7 +23,8 @@ export default function UserDataDisplay() {
       dispatch(setLoading(true));
       
       try {
-        const response = await fetch('http://localhost:3000/api/users/all', {
+        const URL = import.meta.env.VITE_BACKEND_URL;
+        const response = await fetch(`${URL}/api/users/all`, {
           headers: {
             Authorization: `Bearer ${token}`
           },

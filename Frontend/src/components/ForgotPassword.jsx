@@ -27,9 +27,10 @@ const ForgotPassword = () => {
     }
 
     dispatch(setLoading(true));
-
+    
     try {
-      const response = await fetch('http://localhost:3000/api/auth/forgot-password', {
+      const URL = import.meta.env.VITE_BACKEND_URL;
+      const response = await fetch(`${URL}/api/auth/forgot-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

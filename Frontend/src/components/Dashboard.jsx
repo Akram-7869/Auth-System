@@ -5,6 +5,7 @@ import { logout, setUserRole, setLoading } from '../redux/slices/authSlice';
 import { toast } from 'react-toastify';
 import Loader from "./Loader";
 
+
 const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,7 +25,8 @@ const Dashboard = () => {
     const fetchUser = async () => {
       dispatch(setLoading(true));
       try {
-        const res = await fetch('http://localhost:3000/api/auth/me', {
+        const URL = import.meta.env.VITE_BACKEND_URL;
+        const res = await fetch(`${URL}/api/auth/me`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

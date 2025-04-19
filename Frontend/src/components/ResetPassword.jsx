@@ -31,7 +31,8 @@ const ResetPassword = () => {
     dispatch(setLoading(true));
 
     try {
-      const response = await fetch(`http://localhost:3000/api/auth/reset-password/${resetLink}`, {
+      const URL = import.meta.env.VITE_BACKEND_URL;
+      const response = await fetch(`${URL}/api/auth/reset-password/${resetLink}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
